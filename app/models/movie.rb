@@ -1,9 +1,5 @@
-class Movie
-  attr_accessor :title, :overview, :poster_url
-
-  def initialize(title, director, year)
-    @title = title
-    @overview = overview
-    @poster_url = poster_url
-  end
+class Movie < ApplicationRecord
+  has_many :bookmarks
+  validates :title, presence: true, uniqueness: true
+  validates :overview, presence: true
 end

@@ -1,8 +1,5 @@
-class List
-  attr_accessor :name, :movie_id
-
-  def initialize(name, movie_id)
-    @name = name
-    @movie_id = overview
-  end
+class List < ApplicationRecord
+  has_many :bookmarks, dependent: :destroy
+  has_many :movies, through: :bookmarks
+  validates :name, presence: true, uniqueness: true
 end
